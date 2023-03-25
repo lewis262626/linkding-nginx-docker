@@ -1,0 +1,16 @@
+version: '3'
+
+services:
+  nginx:
+    image: nginx:047fa18b8d8aa2e2592d8a164c3ac0242f450389cc46df3b4e554cac17e72fc9 #1.22 stable
+    ports:
+      - 9090:9090
+    restart: unless-stopped
+    volumes:
+      - ./nginx.conf:/etc/nginx/nginx.conf
+
+  linkding:
+    image: linkding:8501a798d8946a7a437aa42712c84347e367c05005b11c33d4e84ca40fb53229 #1.17.2
+    restart: unless-stopped
+    volumes:
+      - ./linkdingdata:etc/linkding/data
